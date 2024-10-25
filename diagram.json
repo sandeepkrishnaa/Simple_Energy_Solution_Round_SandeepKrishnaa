@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-mini", "id": "bb1", "top": 209.8, "left": -232.8, "attrs": {} },
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": -28.2, "left": -288.6, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": 121.4,
+      "left": 57.6,
+      "attrs": { "color": "green" }
+    },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": -164.5, "left": -19.4, "attrs": {} },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 283.2,
+      "left": 95.45,
+      "rotate": 90,
+      "attrs": { "value": "10000" }
+    },
+    {
+      "type": "wokwi-ili9341",
+      "id": "lcd1",
+      "top": -141.2,
+      "left": -638.5,
+      "rotate": 270,
+      "attrs": {}
+    },
+    { "type": "wokwi-slide-switch", "id": "sw1", "top": 23.6, "left": 156.7, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot2", "top": -164.5, "left": 95.8, "attrs": {} },
+    { "type": "wokwi-microsd-card", "id": "sd1", "top": 163.43, "left": -595.13, "attrs": {} }
+  ],
+  "connections": [
+    [ "uno:5V", "bb1:1b.j", "red", [ "v0" ] ],
+    [ "uno:GND.2", "bb1:1b.i", "black", [ "v0" ] ],
+    [ "lcd1:VCC", "bb1:2b.j", "red", [ "v278.4", "h201.6" ] ],
+    [ "bb1:17b.j", "r2:2", "red", [ "v0", "h48" ] ],
+    [ "r2:1", "btn2:2.r", "green", [ "h0" ] ],
+    [ "btn2:2.l", "uno:2", "blue", [ "h-38.4", "v-143.8", "h-71.3" ] ],
+    [ "pot1:GND", "bb1:12b.i", "black", [ "v0" ] ],
+    [ "pot1:VCC", "bb1:11b.j", "red", [ "v48", "h-29.6", "v374.4" ] ],
+    [ "sw1:1", "r2:1", "green", [ "v0" ] ],
+    [ "pot1:SIG", "uno:A0", "green", [ "v288", "h-119.4" ] ],
+    [ "pot2:GND", "pot1:GND", "black", [ "v86.4", "h-115.2" ] ],
+    [ "pot2:VCC", "pot1:VCC", "red", [ "v115.2", "h-116", "v-76.8" ] ],
+    [ "pot2:SIG", "uno:A1", "green", [ "v297.6", "h-225.1" ] ],
+    [ "sd1:GND", "uno:GND.2", "black", [ "h0" ] ],
+    [ "sd1:VCC", "bb1:1b.j", "red", [ "h28.8", "v124.94" ] ],
+    [ "lcd1:GND", "sd1:GND", "black", [ "h48", "v153.6" ] ],
+    [ "lcd1:CS", "uno:9", "green", [ "h0" ] ],
+    [ "lcd1:RST", "uno:8", "green", [ "h0" ] ],
+    [ "lcd1:D/C", "uno:7", "green", [ "h0" ] ],
+    [ "lcd1:SCK", "uno:13", "green", [ "h0" ] ],
+    [ "lcd1:MOSI", "uno:11", "green", [ "h0" ] ],
+    [ "lcd1:MISO", "uno:12", "green", [ "h0" ] ],
+    [ "sd1:DO", "lcd1:MISO", "green", [ "h86.4", "v-211.1" ] ],
+    [ "sd1:SCK", "lcd1:SCK", "green", [ "h96", "v-211.21" ] ],
+    [ "sd1:DI", "lcd1:MOSI", "green", [ "h76.8", "v-220.89" ] ],
+    [ "sd1:CS", "uno:10", "green", [ "h0" ] ],
+    [ "sw1:2", "uno:GND.2", "green", [ "v316.8", "h-278.3", "v-192" ] ],
+    [ "btn2:1.l", "uno:GND.3", "green", [ "h0" ] ],
+    [ "sw1:1", "uno:3", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
